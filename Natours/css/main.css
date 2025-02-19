@@ -1,0 +1,167 @@
+/* Font sizes(px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/webfonts/Lato/Lato-Regular.ttf") format("truetype");
+}
+.heading-primary {
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 9rem;
+}
+.heading-primary--main {
+  display: block;
+  font-size: 6.2rem;
+  letter-spacing: 0.8em;
+  margin-bottom: 1.6rem;
+  font-weight: 400;
+  animation: moveInLeft 1s ease-in;
+  backface-visibility: hidden;
+}
+.heading-primary--sub {
+  display: block;
+  font-size: 2.4rem;
+  letter-spacing: 0.8em;
+  font-weight: 700;
+  animation: moveInRight 1s ease-in;
+  backface-visibility: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #777;
+  padding: 3rem;
+}
+
+.btn:link, .btn:visited {
+  position: relative;
+  display: inline-block;
+  font-size: 1.8rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  background-color: #fff;
+  padding: 2.4rem 3.2rem;
+  border-radius: 10rem;
+  transition: all 0.4s;
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 10rem;
+  background-color: #fff;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: all 0.4s;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn--animated {
+  animation: moveInBottom 0.5s ease-in 0.5s;
+  animation-fill-mode: backwards;
+}
+
+.header {
+  background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../assets/images/hero.jpg");
+  background-size: cover;
+  height: 85vh;
+  clip-path: polygon(0 1%, 100% 0, 100% 80%, 0% 100%);
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo-box {
+  width: 9.8rem;
+  /*  position: absolute;
+  top: 6rem;
+  left: 6rem; */
+}
+.header__logo {
+  max-width: 100%;
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* .navigation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__background {
+    width: 6rem;
+    height: 6rem;
+    background: linear-gradient(to left bottom, rgba($color-primary-dark, 0.8), rgba($color-primary-light, 0.8));
+    border-radius: 50%;
+    position: absolute;
+    top: 6rem;
+    right: 6rem;
+  }
+} */
+
+/*# sourceMappingURL=main.css.map */

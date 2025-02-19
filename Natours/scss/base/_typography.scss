@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+// Rubik font
+@font-face {
+  font-family: 'Rubik';
+  src: url('../assets/webfonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+
+.heading-primary {
+  text-transform: uppercase;
+  color: $color-white;
+  margin-bottom: 9rem;
+
+  &--main {
+    display: block;
+    font-size: 6.2rem;
+    letter-spacing: 0.8em;
+    margin-bottom: 1.6rem;
+    font-weight: 400;
+    animation: moveInLeft 1s ease-in;
+    backface-visibility: hidden;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2.4rem;
+    letter-spacing: 0.8em;
+    font-weight: 700;
+    animation: moveInRight 1s ease-in;
+    backface-visibility: hidden;
+  }
+}
