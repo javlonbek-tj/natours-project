@@ -40,8 +40,8 @@
   }
 }
 @font-face {
-  font-family: "Rubik";
-  src: url("../assets/webfonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-family: "Montserrat";
+  src: url("../assets/webfonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
 }
 .heading-primary {
   text-transform: uppercase;
@@ -50,8 +50,8 @@
 }
 .heading-primary--main {
   display: block;
-  font-size: 6.2rem;
-  letter-spacing: 0.8em;
+  font-size: 7.4rem;
+  letter-spacing: 0.5em;
   margin-bottom: 1.6rem;
   font-weight: 400;
   animation: moveInLeft 1s ease-in;
@@ -66,6 +66,49 @@
   backface-visibility: hidden;
 }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+}
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+}
+.paragraph:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
 *,
 *::before,
 *::after {
@@ -76,25 +119,27 @@
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   color: #777;
+  line-height: 1.7;
   padding: 3rem;
+  background-color: color-grey-light-2;
 }
 
 .btn:link, .btn:visited {
   position: relative;
   display: inline-block;
-  font-size: 1.8rem;
   text-decoration: none;
+  font-size: 1.6rem;
   text-transform: uppercase;
-  color: inherit;
-  background-color: #fff;
-  padding: 2.4rem 3.2rem;
+  padding: 2.4rem 4.8rem;
   border-radius: 10rem;
-  transition: all 0.4s;
+  transition: all 0.2s;
 }
 .btn::after {
   content: "";
@@ -103,11 +148,24 @@ body {
   height: 100%;
   position: absolute;
   border-radius: 10rem;
-  background-color: #fff;
-  z-index: -1;
+  z-index: -10;
   top: 0;
   left: 0;
   transition: all 0.4s;
+}
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+.btn--white::after {
+  background-color: #fff;
+}
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
 }
 .btn:hover {
   transform: translateY(-3px);
@@ -125,19 +183,15 @@ body {
 .header {
   background: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../assets/images/hero.jpg");
   background-size: cover;
-  height: 85vh;
-  clip-path: polygon(0 1%, 100% 0, 100% 80%, 0% 100%);
-  display: flex;
-  justify-content: space-between;
+  height: 95vh;
+  clip-path: polygon(0 1%, 100% 0, 100% 85%, 0% 100%);
+  position: relative;
+  padding: 5.2rem;
 }
 .header__logo-box {
   width: 9.8rem;
-  /*  position: absolute;
   top: 6rem;
-  left: 6rem; */
-}
-.header__logo {
-  max-width: 100%;
+  left: 6rem;
 }
 .header__text-box {
   position: absolute;
@@ -147,21 +201,94 @@ body {
   text-align: center;
 }
 
-/* .navigation {
+.navigation__background, .navigation__button {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  &__background {
-    width: 6rem;
-    height: 6rem;
-    background: linear-gradient(to left bottom, rgba($color-primary-dark, 0.8), rgba($color-primary-light, 0.8));
-    border-radius: 50%;
-    position: absolute;
-    top: 6rem;
-    right: 6rem;
-  }
-} */
+  border-radius: 50%;
+}
+.navigation__background {
+  position: fixed;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  top: 6.5rem;
+  right: 6.5rem;
+  width: 6rem;
+  height: 6rem;
+  z-index: 800;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.navigation.open .navigation__background {
+  transform: scale(80);
+}
+.navigation__button {
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  width: 7rem;
+  height: 7rem;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+.navigation__icon {
+  position: relative;
+}
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 0.2rem;
+  display: inline-block;
+  background-color: #333;
+}
+.navigation__icon::before, .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation__icon::before {
+  top: -0.8rem;
+}
+.navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation__icon.open .navigation__icon::before {
+  transform: rotate(45deg);
+}
+.navigation__icon.open .navigation__icon::after {
+  transform: rotate(-45deg);
+}
+.navigation.open .navigation__icon {
+  background-color: transparent;
+}
+.navigation.open .navigation__icon::before {
+  transform: rotate(135deg);
+  top: 0;
+}
+.navigation.open .navigation__icon::after {
+  transform: rotate(-135deg);
+  top: 0;
+}
+.navigation__nav {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: -100%;
+  opacity: 0;
+  font-size: 3.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 900;
+}
+.navigation.open .navigation__nav {
+  left: 0;
+  opacity: 1;
+}
+.navigation__item:not(:last-child) {
+  margin-bottom: 3.2rem;
+}
 
 /*# sourceMappingURL=main.css.map */

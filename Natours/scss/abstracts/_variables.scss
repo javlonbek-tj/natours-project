@@ -5,7 +5,7 @@
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128 */
 
 // Font families
-$font-primary: 'Lato', sans-serif;
+$font-primary: 'Montserrat', sans-serif;
 
 // Colors
 $color-primary: #55c57a;
@@ -27,3 +27,9 @@ $color-grey-dark-3: #333;
 
 $color-white: #fff;
 $color-black: #000;
+
+// Z-index
+$z-index-btn-after: -10;
+$z-index-nav-toggle: 1000;
+$z-index-nav-background: 800;
+$z-index-nav: 900;

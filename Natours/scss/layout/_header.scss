@@ -4,20 +4,15 @@
   background: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
     url('../assets/images/hero.jpg');
   background-size: cover;
-  height: 85vh;
-  clip-path: polygon(0 1%, 100% 0, 100% 80%, 0% 100%);
-  display: flex;
-  justify-content: space-between;
+  height: 95vh;
+  clip-path: polygon(0 1%, 100% 0, 100% 85%, 0% 100%);
+  position: relative;
+  padding: 5.2rem;
 
   &__logo-box {
     width: 9.8rem;
-    /*  position: absolute;
     top: 6rem;
-    left: 6rem; */
-  }
-
-  &__logo {
-    max-width: 100%;
+    left: 6rem;
   }
 
   &__text-box {
