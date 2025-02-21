@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 400;
+  color: $color-grey-dark;
+  line-height: 1.7;
+  padding: 3rem;
+  background-color: color-grey-light-2;
+}

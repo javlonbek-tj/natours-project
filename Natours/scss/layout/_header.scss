@@ -1,0 +1,25 @@
+@use '../abstracts' as *;
+
+.header {
+  background: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+    url('../assets/images/hero.jpg');
+  background-size: cover;
+  height: 95vh;
+  clip-path: polygon(0 1%, 100% 0, 100% 85%, 0% 100%);
+  position: relative;
+  padding: 5.2rem;
+
+  &__logo-box {
+    width: 9.8rem;
+    top: 6rem;
+    left: 6rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
