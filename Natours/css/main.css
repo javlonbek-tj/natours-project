@@ -291,4 +291,22 @@ body {
   margin-bottom: 3.2rem;
 }
 
+.about {
+  background-color: #f7f7f7;
+  margin-top: -15rem;
+  padding: 20rem 0;
+}
+.about__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 6.4rem;
+}
+.about__heading-secondary {
+  text-align: center;
+  margin-bottom: 6.4rem;
+}
+.about__heading-tertiary {
+  margin-bottom: 1.6rem;
+}
+
 /*# sourceMappingURL=main.css.map */
